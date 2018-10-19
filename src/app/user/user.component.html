@@ -1,0 +1,7 @@
+<div>
+  <app-user-details
+    *ngFor="let user of users"
+    [user]="user"
+    (onDelete)="delete(user)">    
+  </app-user-details>
+</div>
