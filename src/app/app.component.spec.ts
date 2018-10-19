@@ -1,27 +1,31 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { User, UserService } from './user';
+import { of } from 'rxjs/internal/observable/of';
 
 describe('AppComponent', () => {
+  let users: User[] = [];
+  let userServiceMock = jasmine.createSpyObj(['delete', 'get']);
+  userServiceMock.get.and.returnValue(of(users));
+  userServiceMock.delete.and.returnValue(of(true));
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        AppComponent
+      declarations: [ AppComponent ],
+      providers: [
+        { provide: UserService, useValue: userServiceMock }
       ],
-      schemas: [NO_ERRORS_SCHEMA],
-    }).compileComponents();
+      schemas: [NO_ERRORS_SCHEMA]
+    })
+    .compileComponents();
   }));
+
 
   it('should create the app', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
-  });
-
-  it(`should have as title 'Angular 2+ Testing'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('Angular 2+ Testing');
   });
 
   it('should render title in a h1 tag', () => {
