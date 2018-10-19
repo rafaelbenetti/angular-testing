@@ -7,8 +7,6 @@ import { UserService } from "./user";
 import { environment } from "src/environments/environment";
 import { By } from "@angular/platform-browser";
 import { DebugElement } from "@angular/core";
-import { doesNotThrow } from "assert";
-import { element } from "protractor";
 
 describe('AppComponent (integration)', () => {
     let component: AppComponent;
@@ -24,7 +22,10 @@ describe('AppComponent (integration)', () => {
 
     beforeEach(async() => {
         TestBed.configureTestingModule({
-            declarations: [AppComponent, UserListComponent, UserDetailsComponent],
+            declarations: [
+                AppComponent, 
+                UserListComponent, 
+                UserDetailsComponent],
             imports: [HttpClientTestingModule],
             providers: [UserService]
         }).compileComponents();
@@ -50,9 +51,8 @@ describe('AppComponent (integration)', () => {
         component.users = users;
         fixture.detectChanges();
 
-        let userDetailsComponents = el.queryAll(By.directive(UserDetailsComponent));
-
-        expect(users.length).toBe(userDetailsComponents.length);
+        let details = el.queryAll(By.directive(UserDetailsComponent));
+        expect(users.length).toBe(details.length);
     });
 
     it('should show all users with correct information', () => {
@@ -75,8 +75,8 @@ describe('AppComponent (integration)', () => {
         component.users = users;
         fixture.detectChanges();
                 
-        let userDetailsComponent = el.query(By.directive(UserDetailsComponent));
-        let button = userDetailsComponent.nativeElement.querySelector('button');
+        let details = el.query(By.directive(UserDetailsComponent));
+        let button = details.nativeElement.querySelector('button');
         button.dispatchEvent(new Event('click'));
         fixture.detectChanges();
 

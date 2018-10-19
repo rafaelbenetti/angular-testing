@@ -22,4 +22,3 @@ export class UserDetailsComponent implements OnInit {
     this.onDelete.emit();
   }
 }
-
