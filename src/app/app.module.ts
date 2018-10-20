@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { UserService } from './user/user.service';
 import { UserDetailsComponent } from './user/user-details/user-details.component';
 import { UserListComponent } from './user/user-list/user-list.component';
+import { SuperUsersPipe } from './user/super-users.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserDetailsComponent,
-    UserListComponent
+    UserListComponent,
+    SuperUsersPipe
   ],
   imports: [
     BrowserModule,

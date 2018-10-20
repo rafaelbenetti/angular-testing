@@ -5,8 +5,8 @@ import { User } from '../user.model';
 describe('UserDetailsComponent (shallow)', () => {
   let component: UserDetailsComponent;
   let fixture: ComponentFixture<UserDetailsComponent>;
-  
-  let user: User = {
+
+  const user: User = {
     id: 0,
     name: 'John',
     surname: 'Paul'
@@ -26,38 +26,29 @@ describe('UserDetailsComponent (shallow)', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {    
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 
   it('should show all user properties', () => {
-    let el = fixture.nativeElement;
+    const el = fixture.nativeElement;
 
-    let name = el.querySelector('.name').innerHTML;
+    const name = el.querySelector('.name').innerHTML;
     expect(name).toContain(user.name);
 
-    let surname = el.querySelector('.surname').innerHTML;
+    const surname = el.querySelector('.surname').innerHTML;
     expect(surname).toContain(user.surname);
   });
 
-  it('should delete correct user', () => {
-    spyOn(component.onDelete, 'emit');
-    
-    let el = fixture.nativeElement;
-    let button = el.querySelector('button');
+  it('should delete a user', () => {
+    spyOn(component.deleteUser, 'emit');
+
+    const el = fixture.nativeElement;
+    const button = el.querySelector('button');
     button.dispatchEvent(new Event('click'));
 
     fixture.detectChanges();
 
-    expect(component.onDelete.emit).toHaveBeenCalled();
+    expect(component.deleteUser.emit).toHaveBeenCalled();
   });
-
-
-  
-
-
 });
-
-
-
-

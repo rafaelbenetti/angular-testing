@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
-import { User, UserService } from '../index';
+import { User } from '../index';
 
 @Component({
   selector: 'app-user-list',
@@ -7,14 +7,14 @@ import { User, UserService } from '../index';
   styleUrls: ['./user-list.component.scss']
 })
 export class UserListComponent implements OnInit {
-  @Output() onDelete = new EventEmitter<User>();
-  @Input() users: User[];  
+  @Output() deleteUser = new EventEmitter<User>();
+  @Input() users: User[];
 
   constructor() { }
-  
+
   ngOnInit() { }
 
-  delete(user: User): void {
-    this.onDelete.emit(user);
+  onDeleteUser(user: User): void {
+    this.deleteUser.emit(user);
   }
 }

@@ -5,8 +5,8 @@ import { User, UserService } from './user';
 import { of } from 'rxjs/internal/observable/of';
 
 describe('AppComponent', () => {
-  let users: User[] = [];
-  let userServiceMock = jasmine.createSpyObj(['delete', 'get']);
+  const users: User[] = [];
+  const userServiceMock = jasmine.createSpyObj(['delete', 'get']);
   userServiceMock.get.and.returnValue(of(users));
   userServiceMock.delete.and.returnValue(of(true));
 
@@ -20,7 +20,6 @@ describe('AppComponent', () => {
     })
     .compileComponents();
   }));
-
 
   it('should create the app', () => {
     const fixture = TestBed.createComponent(AppComponent);

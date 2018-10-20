@@ -1,3 +1,7 @@
 .user-info {
     padding: 20px;
+    .name, .surname {
+        display: inline-block;
+        padding-right: 10px;
+    }
 }
