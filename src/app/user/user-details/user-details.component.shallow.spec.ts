@@ -40,7 +40,7 @@ describe('UserDetailsComponent (shallow)', () => {
     expect(surname).toContain(user.surname);
   });
 
-  it('should delete a user', () => {
+  it('should EMIT delete for a user', () => {
     spyOn(component.deleteUser, 'emit');
 
     const el = fixture.nativeElement;

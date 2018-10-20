@@ -22,7 +22,7 @@ describe('UserService (isolated)', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should call users resourse with GET method', () => {
+  it('should call users resource with GET method', () => {
     service.get().subscribe();
 
     const request = httpTestingController.expectOne(`${url}/users`);
@@ -32,7 +32,7 @@ describe('UserService (isolated)', () => {
     httpTestingController.verify();
   });
 
-  it('should call users resourse with DELETE method', () => {
+  it('should call users resource with DELETE method', () => {
     const userId = 55;
     service.delete(userId).subscribe();
 
