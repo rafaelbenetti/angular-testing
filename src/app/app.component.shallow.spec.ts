@@ -4,7 +4,7 @@ import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { User, UserService } from './user';
 import { of } from 'rxjs/internal/observable/of';
 
-describe('AppComponent', () => {
+describe('AppComponent (shallow)', () => {
   const users: User[] = [];
   const userServiceMock = jasmine.createSpyObj(['delete', 'get']);
   userServiceMock.get.and.returnValue(of(users));

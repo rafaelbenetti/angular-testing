@@ -3,9 +3,8 @@ import { HttpTestingController, HttpClientTestingModule } from '@angular/common/
 
 import { UserService } from './user.service';
 import { environment } from 'src/environments/environment';
-import { of } from 'rxjs/internal/observable/of';
 
-describe('UserService', () => {
+describe('UserService (isolated)', () => {
   let httpTestingController: HttpTestingController;
   let service: UserService;
   const url = environment.url;

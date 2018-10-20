@@ -8,6 +8,6 @@ import { User } from './index';
 export class SuperUsersPipe implements PipeTransform {
 
   transform(users: User[]): any {
-    return users.filter(u => u.surname === 'Super');
+    return !users ? users : users.filter(u => u.surname === 'Super');
   }
 }
